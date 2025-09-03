@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Suspense } from "react"
 import { DeviceMockups } from "@/components/device-mockups"
 import { FeatureList } from "@/components/feature-list"
 import { ContactForm } from "@/components/contact-form"
@@ -8,12 +9,13 @@ import { OwnerContact } from "@/components/owner-contact"
 
 export default function Page() {
   return (
-    <main>
-      {/* Hero */}
-      <header className="mx-auto w-full max-w-5xl px-4 py-10 md:py-14">
-        <div className="flex flex-col items-center text-center gap-4">
-          <p className="text-sm text-muted-foreground">Domain for Sale</p>
-          <h1 className="text-balance text-3xl font-semibold text-foreground md:text-5xl">lakecityproperties.in</h1>
+    <Suspense fallback={<div>Loading...</div>}>
+      <main>
+        {/* Hero */}
+        <header className="mx-auto w-full max-w-5xl px-4 py-10 md:py-14">
+          <div className="flex flex-col items-center text-center gap-4">
+            <p className="text-sm text-muted-foreground">Domain for Sale</p>
+            <h1 className="text-balance text-3xl font-semibold text-foreground md:text-5xl">lakecityproperties.in</h1>
           <p className="mx-auto max-w-xl text-pretty text-foreground/90">
             Own a memorable, market-ready domain tailored for Indian real estate. Priced at{" "}
             <span className="font-semibold text-foreground">INR 9,999</span>.
@@ -53,5 +55,6 @@ export default function Page() {
         </div>
       </footer>
     </main>
+    </Suspense>
   )
 }

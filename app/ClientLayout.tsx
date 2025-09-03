@@ -30,8 +30,10 @@ export default function ClientLayout({
   return (
     <html lang="en" className={`${openSans.variable} ${montserrat.variable} ${GeistMono.variable} antialiased`}>
       <body className="font-sans">
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-        <Analytics />
+        <Suspense fallback={<div>Loading...</div>}>
+          {children}
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   )
